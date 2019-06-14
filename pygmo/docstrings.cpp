@@ -105,7 +105,7 @@ If the problem is multi-objective one single best is not well defined. In this c
 individuals by calling the :func:`pygmo.sort_population_mo()` function.
 
 Args:
-    tol (``float`` or array-like object): scalar tolerance or vector of tolerances to be applied to each constraints. By default, the c_tol attribute 
+    tol (``float`` or array-like object): scalar tolerance or vector of tolerances to be applied to each constraints. By default, the c_tol attribute
     from the population problem is used.
 
 Returns:
@@ -1266,8 +1266,8 @@ std::string translate_docstring()
 {
     return R"(The translate meta-problem.
 
-This meta-problem translates the whole search space of an input :class:`pygmo.problem` or 
-user-defined problem (UDP) by a fixed translation vector. :class:`~pygmo.translate` objects 
+This meta-problem translates the whole search space of an input :class:`pygmo.problem` or
+user-defined problem (UDP) by a fixed translation vector. :class:`~pygmo.translate` objects
 are user-defined problems that can be used in the construction of a :class:`pygmo.problem`.
 )";
 }
@@ -1758,7 +1758,7 @@ Returns a log containing relevant parameters recorded during the last call to ``
 with an :class:`~pygmo.cstrs_self_adaptive`. A verbosity level of ``N > 0`` will log one line each ``N`` ``iters``.
 
 Returns:
-    ``list`` of ``tuples``: at each call of the inner algorithm, the values ``Iters``, ``Fevals``, ``Best``, ``Infeasibility``, 
+    ``list`` of ``tuples``: at each call of the inner algorithm, the values ``Iters``, ``Fevals``, ``Best``, ``Infeasibility``,
     ``Violated``, ``Viol. Norm`` and ``N. Feasible``, where:
 
     * ``Iters`` (``int``), the number of iterations made (i.e. calls to the evolve method of the inner algorithm)
@@ -1915,7 +1915,7 @@ std::string dtlz_docstring()
 The DTLZ problem suite problem.
 
 Args:
-    prob_id (``int``): DTLZ problem id 
+    prob_id (``int``): DTLZ problem id
     dim (``int``): problem dimension
     fdim (``int``): number of objectives
     alpha (``int``): controls density of solutions (used only by DTLZ4)
@@ -2000,7 +2000,7 @@ The CEC 2009 problem suite (continuous, constrained, single-objective problems)
 
 Args:
     prob_id (``int``): problem id (one of [1..10])
-    is_constrained (``bool``): selects the constrained version of the problems 
+    is_constrained (``bool``): selects the constrained version of the problems
     dim (``int``): problem dimension
 
 Raises:
@@ -2384,6 +2384,23 @@ See also the docs of the relevant C++ method :cpp:func:`pagmo::sade::get_log()`.
 )";
 }
 
+std::string nsga2_set_bfe_docstring()
+{
+    return R"(set_bfe(b)
+
+Set the batch function evaluation scheme.
+
+This method will set the batch function evaluation scheme to be used for :class:`~pygmo.nsga2`.
+
+Args:
+    b (:class:`~pygmo.bfe`): the batch function evaluation object
+
+Raises:
+    unspecified: any exception thrown by the underlying C++ method
+
+)";
+}
+
 std::string nsga2_docstring()
 {
     return R"(__init__(gen = 1, cr = 0.95, eta_c = 10, m = 0.01, eta_m = 10, seed = random)
@@ -2402,7 +2419,7 @@ Raises:
     OverflowError: if *gen* or *seed* are negative or greater than an implementation-defined value
     ValueError: if either *cr* is not in [0,1[, *eta_c* is not in [0,100[, *m* is not in [0,1], or
       *eta_m* is not in [0,100[
-    
+
 See also the docs of the C++ class :cpp:class:`pagmo::nsga2`.
 
 )";
@@ -2576,7 +2593,7 @@ Grey Wolf Optimizer is an optimization algorithm based on the leadership hierarc
 greywolves, proposed by Seyedali Mirjalilia, Seyed Mohammad Mirjalilib, Andrew Lewis in 2014.
 
 This algorithm is a classic example of a highly criticizable line of search that led in the first decades of
-our millenia to the development of an entire zoo of metaphors inspiring optimzation heuristics. In our opinion they, 
+our millenia to the development of an entire zoo of metaphors inspiring optimzation heuristics. In our opinion they,
 as is the case for the grey wolf optimizer, are often but small variations of already existing heuristics rebranded with unnecessray and convoluted
 biological metaphors. In the case of GWO this is particularly evident as the position update rule is shokingly
 trivial and can also be easily seen as a product of an evolutionary metaphor or a particle swarm one. Such an update rule
@@ -2594,7 +2611,7 @@ Args:
 Raises:
     OverflowError: if *gen* or *seed* are negative or greater than an implementation-defined value
     ValueError: if *gen* is not >=3
-    
+
 See also the docs of the C++ class :cpp:class:`pagmo::gwo`.
 
 )";
@@ -3038,7 +3055,7 @@ std::string pso_gen_docstring()
     return R"(__init__(gen = 1, omega = 0.7298, eta1 = 2.05, eta2 = 2.05, max_vel = 0.5, variant = 5, neighb_type = 2, neighb_param = 4, memory = False, seed = random)
 
 Particle Swarm Optimization (generational) is identical to :class:`~pygmo.pso`, but does update the velocities of each particle before new particle positions are computed (taking
-into consideration all updated particle velocities). Each particle is thus evaluated on the same seed within a generation as opposed to the standard PSO which evaluates single particle 
+into consideration all updated particle velocities). Each particle is thus evaluated on the same seed within a generation as opposed to the standard PSO which evaluates single particle
 at a time. Consequently, the generational PSO algorithm is suited for stochastic optimization problems.
 
 
@@ -3157,7 +3174,7 @@ std::string simulated_annealing_get_log_docstring()
 {
     return R"(get_log()
 
-Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen. 
+Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen.
 The log frequency depends on the verbosity parameter (by default nothing is logged) which can be set calling
 the method :func:`~pygmo.algorithm.set_verbosity()` on an :class:`~pygmo.algorithm` constructed with a
 :class:`~pygmo.simulated_annealing`. A verbosity larger than 0 will produce a log with one entry
@@ -3406,7 +3423,7 @@ implements them, they will not be available in the unconstrained problem. The re
 in general, the methods implemented may not be differentiable. Also, the use of this class was originally intended for
 derivative-free optimization.
 
-See: Coello Coello, C. A. (2002). Theoretical and numerical constraint-handling techniques used with evolutionary algorithms: 
+See: Coello Coello, C. A. (2002). Theoretical and numerical constraint-handling techniques used with evolutionary algorithms:
 a survey of the state of the art. Computer methods in applied mechanics and engineering, 191(11), 1245-1287.
 
 See: Kuri Morales, A. and Quezada, C.C. A Universal eclectic genetic algorithm for constrained optimization,
@@ -3504,7 +3521,7 @@ std::string crowding_distance_docstring()
     return R"(non_dominated_front_2d(points)
 
 An implementation of the crowding distance. Complexity is :math:`O(M N \log N)` where :math:`M` is the number of
-objectives and :math:`N` is the number of individuals. The function assumes *points* contain a non-dominated front. 
+objectives and :math:`N` is the number of individuals. The function assumes *points* contain a non-dominated front.
 Failiure to meet this condition will result in undefined behaviour.
 
 See: Deb, Kalyanmoy, et al. "A fast elitist non-dominated sorting genetic algorithm for multi-objective
@@ -3572,7 +3589,7 @@ in :func:`~pygmo.sort_population_mo()`
 
 Complexity is :math:`\mathcal{O}(M N^2)` where :math:`M` is the number of objectives and :math:`N` is the number of individuals.
 
-While the complexity is the same as that of :func:`~pygmo.sort_population_mo()`, this function is to be preferred when 
+While the complexity is the same as that of :func:`~pygmo.sort_population_mo()`, this function is to be preferred when
 possible in that it avoids to compute the crowidng distance for all individuals and only computes it for the last
 non-dominated front containing individuals included in the best N.
 
@@ -3622,7 +3639,7 @@ The resulting single objective is thus defined as:
 - boundary interception method (with penalty constraint): :math:`f_d(\mathbf x) = d_1 + \theta d_2`
 
 where :math:`d_1 = (\mathbf f - \mathbf z^*) \cdot \hat {\mathbf i}_{\lambda}` ,
-:math:`d_2 = \vert (\mathbf f - \mathbf z^*) - d_1 \hat {\mathbf i}_{\lambda})\vert` , and 
+:math:`d_2 = \vert (\mathbf f - \mathbf z^*) - d_1 \hat {\mathbf i}_{\lambda})\vert` , and
 :math:`\hat {\mathbf i}_{\lambda} = \frac{\boldsymbol \lambda}{\vert \boldsymbol \lambda \vert}`
 
 Note that while `ref_point` is required, it does not impact the calculation for the `weighted` method as shown above.
@@ -3657,16 +3674,16 @@ std::string decomposition_weights_docstring()
 
 Generates the requested number of weight vectors to be used to decompose a multi-objective problem. Three methods are available:
 
-- ``"grid"`` generates weights on an uniform grid. This method may only be used when the number of requested weights to be genrated is such that a uniform grid is indeed possible. 
+- ``"grid"`` generates weights on an uniform grid. This method may only be used when the number of requested weights to be genrated is such that a uniform grid is indeed possible.
   In two dimensions this is always the case, but in larger dimensions uniform grids are possible only in special cases
-- ``"random"`` generates weights randomly distributing them uniformly on the simplex (weights are such that :math:`\sum_i \lambda_i = 1`) 
+- ``"random"`` generates weights randomly distributing them uniformly on the simplex (weights are such that :math:`\sum_i \lambda_i = 1`)
 - ``"low discrepancy"`` generates weights using a low-discrepancy sequence to, eventually, obtain a better coverage of the Pareto front. Halton sequence is used since
   low dimensionalities are expected in the number of objectives (i.e. less than 20), hence Halton sequence is deemed as appropriate.
 
-.. note::  
+.. note::
    All methods are guaranteed to generate weights on the simplex (:math:`\sum_i \lambda_i = 1`). All weight generation methods are guaranteed
    to generate the canonical weights [1,0,0,...], [0,1,0,..], ... first.
- 
+
 Args:
     n_f (``int``): the objective vectors
     n_w (``int``): the weights :math:`\boldsymbol \lambda`
@@ -3720,7 +3737,7 @@ std::string ideal_docstring()
 {
     return R"(ideal(points)
 
-Computes the ideal point of a set of points, i.e objective vectors. The ideal point is that point that has, in each 
+Computes the ideal point of a set of points, i.e objective vectors. The ideal point is that point that has, in each
 component, the minimum value of the objective functions of the input points.
 
 Complexity is :math:`\mathcal{O}(MN)` where :math:`M` is the number of objectives and :math:`N` is the number of points.
@@ -3765,7 +3782,7 @@ Args:
 
 Raises:
     OverflowError: if *nec* is negative or greater than an implementation-defined value
-    ValueError: if *f1* and *f2* do not have equal size :math:`n`, if *f1* does not have at least size 1, 
+    ValueError: if *f1* and *f2* do not have equal size :math:`n`, if *f1* does not have at least size 1,
       if *neq* is larger than :math:`n-1` (too many constraints) or if the size of *tol* is not :math:`n - 1`
     TypeError: if *f1*, *f2* or *tol* cannot be converted to a vector of floats
 
@@ -3785,7 +3802,7 @@ std::string sort_population_con_docstring()
     return R"(sort_population_con(input_f, nec, tol)
 
 Sorts a population (intended here as a 2D array-like
-containing fitness vectors) assuming a single-objective, constrained case. 
+containing fitness vectors) assuming a single-objective, constrained case.
 
 The following strict ordering is used (same as the one used in :func:`pygmo.compare_fc()`):
 
@@ -3947,9 +3964,9 @@ std::string set_global_rng_seed_docstring()
     return R"(set_global_rng_seed(seed)
 
 In pygmo it is, in general, possible to control the seed of all random generators by a dedicated *seed* kwarg passed on via various
-constructors. If no *seed* is passed pygmo randomly creates a seed for you using its global random number generator. 
+constructors. If no *seed* is passed pygmo randomly creates a seed for you using its global random number generator.
 
-This function allows to be able to reset the seed of such a global random number generator. This can be useful to create a deterministic behaviour of pygmo easily. 
+This function allows to be able to reset the seed of such a global random number generator. This can be useful to create a deterministic behaviour of pygmo easily.
 
 Args:
     seed (int): the new global seed for random number generation
@@ -3978,7 +3995,7 @@ std::string hvwfg_docstring()
 
 The hypervolume algorithm from the Walking Fish Group (2011 version).
 
-This object can be passed as parameter to the various methods of the 
+This object can be passed as parameter to the various methods of the
 class :class:`~pygmo.hypervolume` as it derives from the hidden base
 class :class:`~pygmo._hv_algorithm`
 
@@ -4003,7 +4020,7 @@ std::string hv2d_docstring()
 
 Exact hypervolume algorithm for two dimensional points.
 
-This object can be passed as parameter to the various methods of the 
+This object can be passed as parameter to the various methods of the
 class :class:`~pygmo.hypervolume` as it derives from the hidden base
 class :class:`~pygmo._hv_algorithm`
 
@@ -4022,7 +4039,7 @@ std::string hv3d_docstring()
 
 Exact hypervolume algorithm for three dimensional points.
 
-This object can be passed as parameter to the various methods of the 
+This object can be passed as parameter to the various methods of the
 class :class:`~pygmo.hypervolume` as it derives from the hidden base
 class :class:`~pygmo._hv_algorithm`
 
@@ -4042,7 +4059,7 @@ std::string bf_approx_docstring()
 Bringmann-Friedrich approximation method. Implementation of the Bringmann-Friedrich approximation scheme (FPRAS),
 reduced to the special case of approximating the least contributor.
 
-This object can be passed as parameter to the various methods of the 
+This object can be passed as parameter to the various methods of the
 class :class:`~pygmo.hypervolume` as it derives from the hidden base
 class :class:`~pygmo._hv_algorithm`
 
@@ -4062,7 +4079,7 @@ std::string bf_fpras_docstring()
 Bringmann-Friedrich approximation method. Implementation of the Bringmann-Friedrich approximation scheme (FPRAS),
 reduced to the special case of approximating the hypervolume indicator.
 
-This object can be passed as parameter to the various methods of the 
+This object can be passed as parameter to the various methods of the
 class :class:`~pygmo.hypervolume` as it derives from the hidden base
 class :class:`~pygmo._hv_algorithm`
 
@@ -5185,10 +5202,10 @@ std::string sea_get_log_docstring()
 {
     return R"(get_log()
 
-Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen. 
+Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen.
 The log frequency depends on the verbosity parameter (by default nothing is logged) which can be set calling
 the method :func:`~pygmo.algorithm.set_verbosity()` on an :class:`~pygmo.algorithm` constructed with a
-:class:`~pygmo.sea`. 
+:class:`~pygmo.sea`.
 A verbosity larger than 1 will produce a log with one entry each verbosity fitness evaluations.
 A verbosity equal to 1 will produce a log with one entry at each improvement of the fitness.
 
@@ -5269,7 +5286,7 @@ Args:
 
 Raises:
     OverflowError: if *gen* or *seed* are negative or greater than an implementation-defined value
-    ValueError: if *phmcr* is not in the ]0,1[ interval, *ppar_min* or *ppar_max* are not in the ]0,1[ 
+    ValueError: if *phmcr* is not in the ]0,1[ interval, *ppar_min* or *ppar_max* are not in the ]0,1[
         interval, min/max quantities are less than/greater than max/min quantities, *bw_min* is negative.
     unspecified: any exception thrown by failures at the intersection between C++ and Python
       (e.g., type conversion errors, mismatched function signatures, etc.)
@@ -5283,10 +5300,10 @@ std::string ihs_get_log_docstring()
 {
     return R"(get_log()
 
-Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen. 
+Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen.
 The log frequency depends on the verbosity parameter (by default nothing is logged) which can be set calling
 the method :func:`~pygmo.algorithm.set_verbosity()` on an :class:`~pygmo.algorithm` constructed with a
-:class:`~pygmo.ihs`. 
+:class:`~pygmo.ihs`.
 A verbosity larger than 1 will produce a log with one entry each verbosity fitness evaluations.
 
 Returns:
@@ -5336,7 +5353,7 @@ A Simple Genetic Algorithm
 
 .. versionadded:: 2.2
 
-Approximately during the same decades as Evolutionary Strategies (see :class:`~pygmo.sea`) were studied, 
+Approximately during the same decades as Evolutionary Strategies (see :class:`~pygmo.sea`) were studied,
 a different group led by John Holland, and later by his student David Goldberg, introduced and
 studied an algorithmic framework called "genetic algorithms" that were, essentially, leveraging on
 the same idea but introducing also crossover as a genetic operator. This led to a few decades of
@@ -5382,7 +5399,7 @@ mutation from Deb.
 
 *Reinsertion*: the only reinsertion strategy provided is what we call pure elitism. After each generation
 all parents and children are put in the same pool and only the best are passed to the next generation.
- 
+
 .. note:
 
    This algorithm will work only for box bounded problems.
@@ -5401,8 +5418,8 @@ Args:
 
 Raises:
     OverflowError: if *gen* or *seed* are negative or greater than an implementation-defined value
-    ValueError: if *cr* is not in [0,1], if *eta_c* is not in [1,100], if *m* is not in [0,1], input_f *mutation* 
-      is not one of ``gaussian``, ``uniform`` or ``polynomial``, if *selection* not one of "roulette", 
+    ValueError: if *cr* is not in [0,1], if *eta_c* is not in [1,100], if *m* is not in [0,1], input_f *mutation*
+      is not one of ``gaussian``, ``uniform`` or ``polynomial``, if *selection* not one of "roulette",
       "truncated" or *crossover* is not one of ``exponential``, ``binomial``, ``sbx``, ``single``, if *param_m* is
       not in [0,1] and *mutation* is not ``polynomial``, if *mutation* is not in [1,100] and *mutation* is ``polynomial``
     unspecified: any exception thrown by failures at the intersection between C++ and Python
@@ -5416,10 +5433,10 @@ std::string sga_get_log_docstring()
 {
     return R"(get_log()
 
-Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen. 
+Returns a log containing relevant parameters recorded during the last call to ``evolve()`` and printed to screen.
 The log frequency depends on the verbosity parameter (by default nothing is logged) which can be set calling
 the method :func:`~pygmo.algorithm.set_verbosity()` on an :class:`~pygmo.algorithm` constructed with a
-:class:`~pygmo.sga`. 
+:class:`~pygmo.sga`.
 A verbosity larger than 1 will produce a log with one entry each verbosity fitness evaluations.
 A verbosity equal to 1 will produce a log with one entry at each improvement of the fitness.
 

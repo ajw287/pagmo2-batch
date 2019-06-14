@@ -250,6 +250,16 @@ void nsga2::set_seed(unsigned seed)
     m_seed = seed;
 }
 
+/// Sets the batch function evaluation scheme
+/**
+ * @param b batch function evaluation object
+ */
+void nsga2::set_bfe(const bfe &b)
+{
+    m_bfe = b;
+}
+
+
 /// Extra info
 /**
  * Returns extra information on the algorithm.
@@ -280,7 +290,7 @@ std::string nsga2::get_extra_info() const
 template <typename Archive>
 void nsga2::serialize(Archive &ar, unsigned)
 {
-    detail::archive(ar, m_gen, m_cr, m_eta_c, m_m, m_eta_m, m_e, m_seed, m_verbosity, m_log);
+    detail::archive(ar, m_gen, m_cr, m_eta_c, m_m, m_eta_m, m_e, m_seed, m_verbosity, m_log); //, m_bfe);
 }
 
 vector_double::size_type nsga2::tournament_selection(vector_double::size_type idx1, vector_double::size_type idx2,

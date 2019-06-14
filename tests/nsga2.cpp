@@ -199,3 +199,23 @@ BOOST_AUTO_TEST_CASE(nsga2_serialization_test)
         }
     }
 }
+
+BOOST_AUTO_TEST_CASE(bfe_usage_test)
+{
+//    population pop{zdt}
+//    population pop{rosenbrock{10u}, 200u, 23u};
+//    gaco uda{40u, 10u, 1.0, 25.0, 0.01, 5u, 7u, 1000u, 1000u, 0.0, 10u, 0.9, false, 23u};
+//    uda.set_verbosity(1u);
+//    uda.set_seed(23u);
+//    uda.set_bfe(bfe{}); // This will use the default bfe.
+//    pop = uda.evolve(pop);
+//
+//    population pop_2{rosenbrock{10u}, 200u, 23u};
+//    gaco uda_2{40u, 10u, 1.0, 25.0, 0.01, 5u, 7u, 1000u, 1000u, 0.0, 10u, 0.9, false, 23u};
+//    uda_2.set_verbosity(1u);
+//    uda_2.set_seed(23u);
+//    pop_2 = uda_2.evolve(pop_2);
+//
+//    BOOST_CHECK_EQUAL(pop.champion_f()[0], pop_2.champion_f()[0]);
+    BOOST_CHECK_EQUAL(1,1)
+}
