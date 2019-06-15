@@ -246,9 +246,7 @@ population nsga2::evolve(population pop) const
           }
           // array - now contains 2NP new individuals
           // run bfe and populate popnew.
-          std::cout << "about to call batch_fitness" << std::endl;
           auto fitnesses = (*m_bfe)(prob, genes);
-          std::cout << "back from batch_fitness" << std::endl;
 
           // at this point:
           // genes     is an ordered list of child inputs (not used again)
